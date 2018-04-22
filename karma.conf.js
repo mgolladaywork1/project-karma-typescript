@@ -15,11 +15,10 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/*.js',
-      'spec/**/*.spec.js',
+      'src/**/*.ts',
+      'spec/**/*.spec.ts',
       'spec/**/*.fixture.html'
     ],
-
 
     // list of files / patterns to exclude
     exclude: [
@@ -29,9 +28,10 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '**/*.ts': ['typescript'],
       '**/*.html': ['html2js'],
       '**/*.json': ['json_fixtures'],
-      'src/**/*.js': ['coverage']
+      '**/*.js': ['coverage']
     },
 
     // regarding json preprocessing
@@ -39,6 +39,20 @@ module.exports = function (config) {
       variableName: '__json__'
     },
 
+    typescriptPreprocessor: {
+      options: {
+        sourceMap: true, // (optional) Generates corresponding .map file.
+        outDir: 'dist/',
+        target: 'ES5', // (optional) Specify ECMAScript target version: 'ES3' (default), or 'ES5'
+        module: 'commonjs', // (optional) Specify module code generation: 'commonjs' or 'amd'
+        noImplicitAny: true, // (optional) Warn on expressions and declarations with an implied 'any' type.
+        noResolve: false, // (optional) Skip resolution and preprocessing.
+        removeComments: true // (optional) Do not emit comments to output.
+      },
+      transformPath: function (path) {
+        return path.replace(/\.ts$/, '.js');
+      }
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -62,7 +76,7 @@ module.exports = function (config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -71,7 +85,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

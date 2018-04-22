@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jasmine": "^2.8.6",
+    "@types/karma-fixture": "^0.2.3",
     "jasmine-core": "^3.1.0",
     "karma": "^2.0.2",
     "karma-chrome-launcher": "^2.2.0",
@@ -17,6 +19,9 @@
     "karma-html2js-preprocessor": "^1.1.0",
     "karma-jasmine": "^1.1.1",
     "karma-json-fixtures-preprocessor": "0.0.6",
-    "karma-phantomjs-launcher": "^1.0.4"
-  }
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-typescript-preprocessor": "^0.3.1",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {}
 }
