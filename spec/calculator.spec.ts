@@ -1,6 +1,6 @@
-//import { Calculator } from "../src/calculator";
+import { Calculator } from "../src/calculator";
 
-describe("Calculator", function () {
+describe("Calculator", () => {
 
 
     let calculator: Calculator;
@@ -28,7 +28,7 @@ describe("Calculator", function () {
     };
 
     // inject the HTML fixture for the tests
-    beforeEach(function () {
+    beforeEach(() => {
         // Why this line? See: https://github.com/billtrik/karma-fixture/issues/3
         fixture.setBase("spec");
         fixture.load("calculator.fixture.html");
@@ -36,25 +36,25 @@ describe("Calculator", function () {
     });
 
     // remove the html fixture from the DOM
-    afterEach(function () {
+    afterEach(() => {
         fixture.cleanup();
     });
 
-    it("should calculate 3 for 1 + 2", function () {
+    it("should calculate 3 for 1 + 2", () => {
         controls.x = "1";
         controls.y = "2";
         controls.clickAdd();
         expect(controls.result).toBe("3");
     });
 
-    it("should calculate zero for invalid x value", function () {
+    it("should calculate zero for invalid x value", () => {
         controls.x = "hello";
         controls.y = "2";
         controls.clickAdd();
         expect(controls.result).toBe("0");
     });
 
-    it("should calculate zero for invalid y value", function () {
+    it("should calculate zero for invalid y value", () => {
         controls.x = "1";
         controls.y = "goodbye";
         controls.clickAdd();

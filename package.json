@@ -20,7 +20,7 @@
     "karma-jasmine": "^1.1.1",
     "karma-json-fixtures-preprocessor": "0.0.6",
     "karma-phantomjs-launcher": "^1.0.4",
-    "karma-typescript-preprocessor": "^0.3.1",
+    "karma-typescript": "^3.0.12",
     "typescript": "^2.8.3"
   },
   "dependencies": {}
